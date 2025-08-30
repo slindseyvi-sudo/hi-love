@@ -1,0 +1,60 @@
+/* Envelope animation styles */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fef6f6;
+  font-family: 'Arial', sans-serif;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #ff6b81;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border-radius: 6px;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #ff4757;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+.letter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: white;
+  padding: 20px;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 1s ease;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #2f3542;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.envelope.open .letter {
+  transform: translateY(0);
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #ff4757;
+}
