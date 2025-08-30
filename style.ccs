@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #e0e0e0;
+  border: 2px solid #b0b0b0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #c0c0c0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.6s ease;
+}
+
+.envelope.open .flap {
+  transform: rotateX(-180deg);
+}
+
+.letter {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: bottom 0.6s ease;
+}
+
+.envelope.open .letter {
+  bottom: 0;
+}
